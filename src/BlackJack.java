@@ -1,4 +1,20 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class BlackJack {
+
+    private Deck deck;
+    private ArrayList<Card> player;
+    private ArrayList<Card> dealer;
+
+    Scanner kb;
+
+    public BlackJack() {
+        deck = new Deck();
+        player = new ArrayList<>();
+        dealer = new ArrayList<>();
+        kb = new Scanner(System.in);
+    }
 
     public static void main(String[] args) {
         BlackJack game = new BlackJack();
@@ -6,19 +22,44 @@ public class BlackJack {
     }
 
     private void run() {
-        // valid suits are 0-3
-        // valid values are 2-14
-        Card card1 = new Card(0, 2);
-        Card card2 = new Card(0, 3);
-        Card card3 = new Card(0, 4);
-        Card card4 = new Card(0, 5);
-        Card card5 = new Card(0, 6);
+        // dealCards()
+        deck.shuffle();
 
-        System.out.println(card1);
-        System.out.println(card2);
-        System.out.println(card3);
-        System.out.println(card4);
-        System.out.println(card5);
+        player.add(deck.getCard());
+        dealer.add(deck.getCard());
+        player.add(deck.getCard());
+        dealer.add(deck.getCard());
 
+        System.out.println("dealer hand:\t"+dealer.get(0)+" [?]");
+        System.out.println("player hand:\t"+player.get(0)+" "+player.get(1));
+
+        System.out.println();
+        System.out.println("hit or stay?");
+        String response = kb.nextLine();
+        if(response.equals("hit")) {
+            player.add(deck.getCard());
+        }
+        System.out.println("player hand:\t"+player.get(0)+" "+player.get(1)+" "+player.get(2));
+
+        //while(response.equals("hit")) {...}
+        //do{...}while(logic);
+
+        /*
+        for(int i = 0; i < player.size(); i++) {\
+            //not a complete statement below
+            //print what is below
+            player.get(i)?
+        }
+
+         */
+
+
+
+
+        // playerTurn()
+        // dealerTurn()
+        // calcHandValue()
     }
+
+
 }

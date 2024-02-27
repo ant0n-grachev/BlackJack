@@ -17,7 +17,7 @@ public class Card {
     }
 
     public String toString() {
-        String[] suits = {"Hearts", "Clubs", "Diamonds", "Spades"};
+        String[] suits = {"♥", "♣", "♦", "♠"};
         String[] values = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
         return values[this.value-2] + " " + suits[this.suit];
     }
