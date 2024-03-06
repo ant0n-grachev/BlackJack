@@ -119,11 +119,6 @@ public class BlackJack {
             System.out.println("Player busts! Dealer wins.");
             playerBankroll -= betAmount;
         }
-        else if (calculateHandValue(player) == 21) {
-            gameOver = true;
-            System.out.println("Player wins! Blackjack!");
-            playerBankroll += betAmount;
-        }
     }
 
     /**
