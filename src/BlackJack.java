@@ -73,7 +73,13 @@ public class BlackJack {
         while (true) {
             System.out.println("Current bankroll: $" + playerBankroll);
             System.out.print("Enter bet amount: $");
-            betAmount = kb.nextInt();
+            try {
+                betAmount = kb.nextInt();
+            } catch (Exception ignored) {
+                kb.nextLine();
+                System.out.println("Invalid input.\n");
+                continue;
+            }
             if (betAmount > playerBankroll) {
                 System.out.println("You cannot bet more than your bankroll.\n");
                 continue;
